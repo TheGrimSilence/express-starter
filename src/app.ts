@@ -23,7 +23,9 @@ app.delete("/", (request, result) => {
     result.send("Delete: Received request for DELETE")
 })
 
+// Serve static
 app.use(express.static('public'))
+// Serve aliased static
 app.use('/static', express.static('public'))
 
 app.listen(PORT, () => {
