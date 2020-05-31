@@ -1,0 +1,17 @@
+{
+  "name": "express-starter",
+  "version": "1.0.0",
+  "description": "A personal express server for learning",
+  "main": "index.js",
+  "repository": "https://github.com/TheGrimSilence/express-starter.git",
+  "author": "Grim <silencegrim@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "yarn node ./out/src/app.js"
+  },
+  "devDependencies": {
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "typescript": "^3.9.3"
+  }
+}
