@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 
 const app = express();
 const PORT = 3000;
@@ -25,8 +25,24 @@ app.delete("/", (request, result) => {
 
 // Serve static
 app.use(express.static('public'))
+
 // Serve aliased static
 app.use('/static', express.static('public'))
+
+// Parameters
+app.get('/users/:userId/books/:bookId', (request, result) => {
+    result.send(request.params)
+})
+
+// 404
+app.use((request, result, next) => {
+    result.status(404).send("Yeah, no. Something is missing.")
+})
+
+// Error handler
+app.use((error: Error, request: any, result: any, next: NextFunction) => {
+    console.error(error.stack)
+})
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
